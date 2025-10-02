@@ -24,37 +24,44 @@ export default function About(props) {
         <div className='About-container' id="about-back" >
 
           <div className="about-image-container" ref={imageRef}>
-            <img id="about-image" src="/all_images/geas_pogi.png" className="scale-in hover-lift"/>
-            </div>
+            <img
+              id="about-image"
+              src={`${process.env.PUBLIC_URL}/all_images/geas_pogi.png`}
+              className="scale-in hover-lift"
+              alt="Geaser Jan Gadingan"
+              onLoad={() => console.log('Image loaded successfully')}
+              onError={(e) => console.error('Image failed to load:', e.target.src)}
+            />
+          </div>
           
           <div className="About-content">
-            <h4 
+            <h4
               ref={titleRef}
-              className="fade-in"
+              className="slide-down"
               style={{color:props.switch_modes==="dark"?"":"#484747"}}
             >
               About<span className="gradient-text"> Me</span>
             </h4>
-            <h3 
+            <h3
               className="slide-in-left"
               style={{color:props.switch_modes==="dark"?"":"#484747"}}
             >
               An aspiring software engineer.
             </h3>
             <div className='about-para'>
-              <p 
+              <p
                 ref={contentRef}
-                className="para fade-in"
+                className="para slide-up"
                 style={{color:props.switch_modes==="dark"?"":"#484747"}}
               >
                 As a web developer, I've been actively exploring the world of web development by learning JavaScript, CSS, HTML, and React. I've built several projects using these technologies. Recently, I've also started exploring Web3 and blockchain development using Python, with a focus on AI and machine learning.
               </p>
             </div>
-            
-            <button 
+
+            <button
               ref={buttonRef}
-              onClick={()=>set_about_popup(about_popup? false : true)} 
-              className='btn hover-glow' 
+              onClick={()=>set_about_popup(about_popup? false : true)}
+              className='btn hover-glow zoom-in'
               style={{display:"flex","--shadow":props.switch_modes==="dark"?"#0ef":"#484747",backgroundColor:props.switch_modes==="dark"?"":"#484747",color:props.switch_modes==="dark"?"":"#0ef"}}
             >
               <b> Read more</b>

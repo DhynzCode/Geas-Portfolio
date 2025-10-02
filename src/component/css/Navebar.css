@@ -2,12 +2,14 @@
   align-items: center;
   color: #171721;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 99999;
+  padding: 15px 2rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
   
 
@@ -21,21 +23,17 @@
   
 }
 .fcontainer .toggle-button{
-  display: flex;
-  margin-right: 20px;
+  display: none;
+  align-items: center;
+  cursor: pointer;
 }
 .fitem1{
-    margin-right:auto ;
-    margin-left: 150px;
-    padding: 10px 10px;
     color: #fff;
-    font-size: 26px;
-    font-weight: 500;
-    
+    font-size: 1.8rem;
+    font-weight: 600;
     animation: slideRight 1s ease forwards;
-
-    
-    
+    cursor: pointer;
+    user-select: none;
   }
   
 .fitem1 span{
@@ -46,19 +44,14 @@
   display: flex;
   width: 65px;
   height: 30px;
-  margin-right: 15px;
   cursor: pointer;
   justify-content: space-between;
   align-items: center;
-
   background-color: #f7f3f3;
   padding: 5px;
-  
-  
-  
   border-radius: 50px;
-  
-
+  margin-left: 1rem;
+  position: relative;
 }
 .ball{
   position: absolute;
@@ -84,11 +77,9 @@
 
 
 .nav-items{
-  display:flex;
-  width: 500px;
-  margin-right:100px ;
-  justify-content: space-evenly;
-
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 .fitem{
     
@@ -118,25 +109,25 @@
 
 .drop-menu{
   display: none;
-  
   position: absolute;
   z-index: 99;
-  
   align-items: center;
   justify-content: space-evenly;
-
-  
-  top:60px;
+  top: 70px;
+  left: 0;
   width: 100%;
   overflow: hidden;
   height: 0;
-  
-  background: #272a33;
-  transition: height 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: rgba(39, 42, 51, 0.95);
+  backdrop-filter: blur(10px);
+  transition: height 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 0 0 10px 10px;
 }
-.open{
+
+.drop-menu.open{
   display: flex;
-  height: 50px;
+  height: auto;
+  min-height: 60px;
 }
 .drop-menu .fitem{
   font-size: 14px;
@@ -173,24 +164,122 @@
   }
 
  }
-@media(max-width:992px){
-  .light_dark{
-    margin-right:30px ;
+/* Tablet and mobile breakpoints */
+@media(max-width: 1024px){
+  .fcontainer {
+    padding: 12px 1.5rem;
   }
+
+  .nav-items{
+    gap: 1.5rem;
+  }
+
+  .fitem1{
+    font-size: 1.6rem;
+  }
+}
+
+@media(max-width: 768px){
+  .fcontainer {
+    padding: 15px 1rem;
+    position: relative;
+  }
+
   .nav-items{
     display: none;
   }
-  .fitem1{
-    margin-left:0;
+
+  .fcontainer .toggle-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
   }
+
+  .fcontainer .toggle-button:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
   .fcontainer .toggle-button i{
     display: flex;
     font-weight: 900;
-    
-    
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
   }
+
   .drop-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(39, 42, 51, 0.98);
+    backdrop-filter: blur(20px);
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    padding: 1.5rem 0;
     display: flex;
-    
+    flex-direction: column;
+    gap: 0.5rem;
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+  }
+
+  .drop-menu.open{
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .drop-menu .fitem{
+    padding: 12px 2rem;
+    margin: 0;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .drop-menu .fitem:last-child{
+    border-bottom: none;
+  }
+
+  .drop-menu .fitem:hover{
+    background-color: rgba(14, 255, 255, 0.1);
+    padding-left: 2.5rem;
+  }
+
+  .fitem1{
+    font-size: 1.4rem;
+  }
+
+  .light_dark{
+    width: 55px;
+    height: 25px;
+    margin-left: 0.5rem;
+  }
+}
+
+@media(max-width: 480px){
+  .fcontainer {
+    padding: 12px 1rem;
+  }
+
+  .fitem1{
+    font-size: 1.2rem;
+  }
+
+  .light_dark{
+    width: 50px;
+    height: 22px;
+  }
+
+  .drop-menu .fitem{
+    font-size: 14px;
+    padding: 10px 1.5rem;
   }
 }

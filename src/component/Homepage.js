@@ -14,29 +14,29 @@ export default function Homepage(props) {
       <div className='home-outer-container' id="cont3">
         <div className='home-inner-container' id="cont1">
           <div className='content-main'>
-            <h3 
+            <h3
               ref={titleRef}
-              className="fade-in"
+              className="slide-down"
               style={{color:props.switch_modes==="dark"?"":"#484747"}}
             >
               Hello, IT's
             </h3>
-            <h1 
+            <h1
               ref={contentRef}
               className="slide-in-left"
               style={{color:props.switch_modes==="dark"?"":"#484747"}}
             >
               <b>Geaser Jan Gadingan</b>
             </h1>
-            <h3 
-              id="my-skill-list" 
-              className="fade-in"
+            <h3
+              id="my-skill-list"
+              className="slide-in-right"
               style={{color:props.switch_modes==="dark"?"":"#484747"}}
             >
               <b>And I'm a <span id="types" className="gradient-text"><Typed strings={[" IT Student", "Javascript Developer", "Crypto Trader","NFT hunter"]} typeSpeed={80} backSpeed={80} loop /></span></b>
             </h3>
-            <p 
-              className="fade-in"
+            <p
+              className="slide-up"
               style={{color:props.switch_modes==="dark"?"":"#484747"}}
             >
               This is my portfolio Developer by me using React, Javascript,
